@@ -2,7 +2,7 @@ My solution to the REST Countries API challenge from [Frontend Mentor](https://w
 
 # Frontend Mentor - REST Countries API with color theme switcher
 
-![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
+[Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
 
