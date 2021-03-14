@@ -9,19 +9,19 @@ const Toggle = () => {
 		<div className="p-2 transition duration-500 ease-in-out rounded-full">
 			{theme === "dark" ? (
 				<IoSunny
-					onClick={() =>
+					onClick={ () =>
 						setTheme(theme === "dark" ? "light" : "dark")
 					}
 					className="text-2xl cursor-pointer"
 				/>
 			) : (
 				<IoMoon
-					onClick={() =>
+					onClick={ () =>
 						setTheme(theme === "dark" ? "light" : "dark")
 					}
 					className="text-2xl cursor-pointer"
 				/>
-			)}
+			) }
 		</div>
 	);
 };
