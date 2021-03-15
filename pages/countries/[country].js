@@ -4,7 +4,7 @@ import Link from "next/link";
 import { GoArrowLeft } from "react-icons/go";
 import { ThemeProvider } from "../../context/themeContext";
 import Navbar from "../../components/Navbar";
-import Loading from "../../components/Loading"
+import Loading from "../../components/Loading";
 
 const getURL = (country) => `https://restcountries.eu/rest/v2/alpha/${country}`;
 
@@ -12,7 +12,7 @@ export default function DetailPage({ data: initialData, country }) {
 	const { data, error } = useSWR(getURL(country), fetcher, { initialData });
 
 	if (error) return "An error has occurred.";
-	if (!data) return <Loading />
+	if (!data) return <Loading />;
 
 	return (
 		<ThemeProvider>
@@ -29,86 +29,86 @@ export default function DetailPage({ data: initialData, country }) {
 					<div className="flex items-center justify-center overflow-hidden">
 						<img
 							className="w-full h-auto mb-8 rounded-md md:max-w-2xl"
-							src={ data.flag }
-							alt={ `The flag of ${data.name}` }
+							src={data.flag}
+							alt={`The flag of ${data.name}`}
 						/>
 					</div>
 					<div className="items-center justify-center md:flex-row">
-						<h1 className="mb-8 text-2xl font-bold">{ data.name }</h1>
+						<h1 className="mb-8 text-2xl font-bold">{data.name}</h1>
 						<div className="gap-12 md:flex">
 							<ul className="leading-relaxed">
 								<li>
 									<span className="font-semibold">
-										Native Name:{ " " }
+										Native Name:{" "}
 									</span>
-									{ data.nativeName }
+									{data.nativeName}
 								</li>
 								<li>
 									<span className="font-semibold">
-										Population:{ " " }
+										Population:{" "}
 									</span>
-									{ data.population.toLocaleString() }
+									{data.population.toLocaleString()}
 								</li>
 								<li>
 									<span className="font-semibold">
-										Region:{ " " }
+										Region:{" "}
 									</span>
-									{ data.region }
+									{data.region}
 								</li>
 								<li>
 									<span className="font-semibold">
-										Sub Region:{ " " }
+										Sub Region:{" "}
 									</span>
-									{ data.subregion }
+									{data.subregion}
 								</li>
 								<li>
 									<span className="font-semibold">
-										Capital:{ " " }
+										Capital:{" "}
 									</span>
-									{ data.capital }
+									{data.capital}
 								</li>
 							</ul>
 							<ul className="mt-4 leading-relaxed md:mt-0">
 								<li>
 									<span className="font-semibold">
-										Top level Domain:{ " " }
+										Top level Domain:{" "}
 									</span>
-									{ data.topLevelDomain }
+									{data.topLevelDomain}
 								</li>
 								<li>
 									<span className="font-semibold">
-										Currencies:{ " " }
+										Currencies:{" "}
 									</span>
-									{ data.currencies[0].name }
+									{data.currencies[0].name}
 								</li>
 								<li>
 									<span className="font-semibold">
-										Languages:{ " " }
+										Languages:{" "}
 									</span>
-									{ data.languages
+									{data.languages
 										.map((language) => {
 											return language.name;
 										})
-										.join(",  ") }
+										.join(",  ")}
 								</li>
 							</ul>
 						</div>
 						<div className="mt-8 xl:max-w-lg">
 							<span className="font-semibold">Borders: </span>
 							<br />
-							{ data.borders.map((border, i) => (
+							{data.borders.map((border, i) => (
 								<Link
-									href={ "/countries/" + border.toLowerCase() }
-									key={ i }
+									href={"/countries/" + border.toLowerCase()}
+									key={i}
 								>
 									<button
 										className="px-4 py-2 mt-2 mr-2 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5 dark:hover:bg-opacity-75"
-										key={ data.alpha3Code }
+										key={data.alpha3Code}
 									>
-										{ border }
+										{border}
 									</button>
 								</Link>
-							)) }
+							))}
 						</div>
 					</div>
 				</div>

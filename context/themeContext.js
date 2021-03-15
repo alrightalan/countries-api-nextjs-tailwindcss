@@ -21,7 +21,6 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ initialTheme, children }) => {
 	const [theme, setTheme] = useState(getInitialTheme);
-	const [mounted, setMounted] = useState(false);
 
 	const rawSetTheme = (rawTheme) => {
 		const root = window.document.documentElement;
@@ -39,10 +38,7 @@ export const ThemeProvider = ({ initialTheme, children }) => {
 
 	useEffect(() => {
 		rawSetTheme(theme);
-		setMounted(true);
 	}, [theme]);
-
-	if (!mounted) return null;
 
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
