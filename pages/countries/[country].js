@@ -95,17 +95,19 @@ export default function DetailPage({ data: initialData, country }) {
 						<div className="mt-8 xl:max-w-lg">
 							<span className="font-semibold">Borders: </span>
 							<br />
-							{data &&
-								data.borders.map((border, i) => (
-									<Link href={"/countries/" + border} key={i}>
-										<button
-											className="px-4 py-2 mt-2 mr-2 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5 dark:hover:bg-opacity-75"
-											key={data.alpha3Code}
-										>
-											{border}
-										</button>
-									</Link>
-								))}
+							{data.borders.map((border, i) => (
+								<Link
+									href={"/countries/" + border.toLowerCase()}
+									key={i}
+								>
+									<button
+										className="px-4 py-2 mt-2 mr-2 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5 dark:hover:bg-opacity-75"
+										key={data.alpha3Code}
+									>
+										{border}
+									</button>
+								</Link>
+							))}
 						</div>
 					</div>
 				</div>

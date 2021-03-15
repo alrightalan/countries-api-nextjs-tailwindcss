@@ -7,7 +7,7 @@ const RegionFilter = ({ filter, setFilter }) => {
 	const regions = ["Africa", "Americas", "Europe", "Oceania"];
 
 	return (
-		<div className="relative w-48">
+		<div className="relative sm:w-48">
 			<div
 				onClick={ () => setToggleMenu(!toggleMenu) }
 				onBlur={ () => setToggleMenu(false) }
