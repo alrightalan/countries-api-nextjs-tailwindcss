@@ -10,7 +10,7 @@ const Navbar = () => {
 						Where in the world?
 					</h1>
 				</Link>
-				{ process.browser ? <Toggle /> : null }
+				<Toggle />
 			</div>
 		</header>
 	);
