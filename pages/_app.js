@@ -1,12 +1,17 @@
+import { useState, useEffect } from "react";
 import "../styles/globals.css";
 import "../styles/tailwind.css";
 import { ThemeProvider } from "../context/themeContext";
 
 function MyApp({ Component, pageProps }) {
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
 	return (
-		<ThemeProvider>
-			<Component {...pageProps} />;
-		</ThemeProvider>
+		<ThemeProvider>{mounted && <Component {...pageProps} />}</ThemeProvider>
 	);
 }
 
