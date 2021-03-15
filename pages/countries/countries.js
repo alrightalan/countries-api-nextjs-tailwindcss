@@ -47,7 +47,7 @@ export default function Main({ initialData }) {
 	);
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 	const data = await fetcher("https://restcountries.eu/rest/v2/all");
 	return { props: { initialData: data } };
 }

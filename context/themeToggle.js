@@ -15,7 +15,7 @@ const Toggle = () => {
 					className="text-2xl cursor-pointer"
 				/>
 			) : (
-				<IoSunny
+				<IoMoon
 					onClick={ () =>
 						setTheme(theme === "dark" ? "light" : "dark")
 					}
