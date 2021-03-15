@@ -1,28 +1,22 @@
 import React from "react";
-import { IoSunny, IoMoon } from "react-icons/io5";
 import { ThemeContext } from "./themeContext";
 
 const Toggle = () => {
 	const { theme, setTheme } = React.useContext(ThemeContext);
 
+	function isDark() {
+		return theme === "dark";
+	}
+
 	return (
-		<div className="p-2 transition duration-500 ease-in-out rounded-full">
-			{theme === "dark" ? (
-				<IoSunny
-					onClick={ () =>
-						setTheme(theme === "dark" ? "light" : "dark")
-					}
-					className="text-2xl cursor-pointer"
-				/>
-			) : (
-				<IoMoon
-					onClick={ () =>
-						setTheme(theme === "dark" ? "light" : "dark")
-					}
-					className="text-2xl cursor-pointer"
-				/>
-			) }
-		</div>
+		<label>
+			<input
+				type="checkbox"
+				checked={isDark()}
+				onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+			></input>
+			Dark Mode
+		</label>
 	);
 };
 
