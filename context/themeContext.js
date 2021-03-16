@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import Navbar from "../components/Navbar";
 
 const getInitialTheme = () => {
 	if (typeof window !== "undefined" && window.localStorage) {
@@ -42,6 +43,7 @@ export const ThemeProvider = ({ initialTheme, children }) => {
 
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
+			<Navbar />
 			{children}
 		</ThemeContext.Provider>
 	);
