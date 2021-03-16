@@ -3,6 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import Loading from "../../components/Loading";
 import { GoArrowLeft } from "react-icons/go";
+import Navbar from "../../components/Navbar";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 const getURL = (country) => `https://restcountries.eu/rest/v2/alpha/${country}`;
@@ -15,6 +16,7 @@ export default function DetailPage({ country }) {
 
 	return (
 		<div className="min-h-screen text-dark-elements bg-light-bg dark:bg-dark-bg dark:text-light-elements">
+			<Navbar />
 			<div className="flex py-8 mx-8 md:mx-16 sm:mb-16 xl:max-w-screen-xl xl:mx-auto">
 				<Link href="/">
 					<button className="flex items-center px-8 py-2 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5">
