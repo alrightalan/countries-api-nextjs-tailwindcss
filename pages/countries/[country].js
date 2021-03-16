@@ -17,22 +17,22 @@ export default function DetailPage({ country }) {
 	return (
 		<div className="min-h-screen text-dark-elements bg-light-bg dark:bg-dark-bg dark:text-light-elements">
 			<Navbar />
-			<div className="flex py-8 mx-8 md:mx-16 sm:mb-16 xl:max-w-screen-xl xl:mx-auto">
+			<div className="flex py-8 mx-8 mb-4 md:mx-16 lg:mb-8 xl:max-w-screen-xl xl:mx-auto">
 				<Link href="/">
-					<button className="flex items-center px-8 py-2 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5">
+					<button className="flex items-center px-8 py-4 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5">
 						<GoArrowLeft className="mr-4" /> Back
 					</button>
 				</Link>
 			</div>
 			<div className="items-start h-full max-w-screen-xl gap-16 pb-8 mx-8 justify-evenly md:pb-12 lg:items-center md:mx-32 lg:mx-48 xl:flex xl:mx-auto">
-				<div className="flex items-center justify-center overflow-hidden">
-					<img
-						className="w-full h-auto mb-8 rounded-md md:max-w-2xl"
-						src={data.flag}
-						alt={`The flag of ${data.name}`}
-					/>
-				</div>
-				<div className="items-center justify-center md:flex-row">
+				<div className="flex items-center justify-center overflow-hidden"></div>
+				<img
+					className="w-full h-auto rounded-md md:max-w-2xl"
+					src={data.flag}
+					alt={`The flag of ${data.name}`}
+				/>
+
+				<div className="items-center justify-center pt-8 xl:p-0 md:flex-row">
 					<h1 className="mb-8 text-2xl font-bold">{data.name}</h1>
 					<div className="gap-12 md:flex">
 						<ul className="leading-relaxed">

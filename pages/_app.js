@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
 		setMounted(true);
 	}, []);
 
+	console.log(mounted);
 	return (
 		<ThemeProvider>{mounted && <Component {...pageProps} />}</ThemeProvider>
 	);
