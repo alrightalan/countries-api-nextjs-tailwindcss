@@ -5,7 +5,6 @@ import { IoSunny, IoMoon } from "react-icons/io5";
 
 const Toggle = () => {
 	const { theme, setTheme } = useTheme();
-
 	const [isMounted, setIsMounted] = useState(false);
 
 	useEffect(() => {
@@ -22,18 +21,18 @@ const Toggle = () => {
 
 	return (
 		<div className="p-2 transition duration-500 ease-in-out rounded-full">
-			{theme === "dark" ? (
-				<IoSunny
-					onClick={ switchTheme }
-					className="text-2xl cursor-pointer"
-				/>
-			) : (
-				<IoMoon
-					onClick={ switchTheme }
-					className="text-2xl cursor-pointer"
-				/>
-			) }
+
+			<IoSunny
+				onClick={ switchTheme }
+				className="text-2xl cursor-pointer" />
+
+
+			<IoMoon
+				onClick={ switchTheme }
+				className="text-2xl cursor-pointer" />
+
 		</div>
+
 	);
 };
 
