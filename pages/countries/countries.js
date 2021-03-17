@@ -2,28 +2,26 @@ import { useState, useEffect } from "react";
 
 import Link from "next/link";
 import axios from "axios";
+import useSWR from "swr";
 
+import Loading from "../../components/Loading";
 import Navbar from "../../components/Navbar";
 import SearchBar from "../../components/SearchBar";
 import RegionFilter from "../../components/RegionFilter";
 import CountryCard from "../../components/CountryCard";
 
-export default function Main() {
-	const [countries, setCountries] = useState([]);
+const fetcher = (url) => axios.get(url).then((res) => res.data);
 
-	const fetchData = async () => {
-		const { data } = await axios.get(
-			"https://restcountries.eu/rest/v2/all"
-		);
-		setCountries(data);
-	};
+const getURL = "https://restcountries.eu/rest/v2/all/";
 
-	useEffect(() => {
-		fetchData();
-	}, []);
-
+export default function Main({ initialData }) {
 	const [search, setSearch] = useState("");
 	const [filter, setFilter] = useState("");
+
+	const { data, error } = useSWR(getURL, fetcher, { initialData });
+
+	if (error) return <div>failed to load</div>;
+	if (!data) return <Loading />;
 
 	return (
 		<>
@@ -35,8 +33,8 @@ export default function Main() {
 				</div>
 
 				<div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-4">
-					{countries &&
-						countries
+					{data &&
+						data
 							.filter(
 								(country) =>
 									country.region.includes(filter) &&
@@ -57,4 +55,9 @@ export default function Main() {
 			</main>
 		</>
 	);
+}
+
+export async function getServerSideProps() {
+	const data = await fetcher(getURL);
+	return { props: { initialData: data } };
 }
