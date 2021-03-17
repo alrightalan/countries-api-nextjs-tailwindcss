@@ -24,7 +24,7 @@ export default function DetailPage({ country }) {
 					</button>
 				</Link>
 			</div>
-			<div className="items-start h-full max-w-screen-xl gap-16 pb-8 mx-8 justify-evenly md:pb-12 lg:items-center md:mx-32 lg:mx-48 xl:flex xl:mx-auto">
+			<div className="items-start h-full max-w-screen-xl gap-24 pb-8 mx-8 justify-evenly md:pb-12 lg:items-center md:mx-32 lg:mx-48 xl:flex xl:mx-auto">
 				<div className="flex items-center justify-center overflow-hidden"></div>
 				<img
 					className="w-full h-auto rounded-md md:max-w-2xl"
