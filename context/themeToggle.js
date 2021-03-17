@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { IoSunny, IoMoon } from "react-icons/io5";
-import { ThemeContext } from "./themeContext";
+
 
 const Toggle = () => {
-	const { theme, setTheme } = React.useContext(ThemeContext);
+	const { theme, setTheme } = useTheme();
 
 	const [isMounted, setIsMounted] = useState(false);
 
@@ -23,15 +24,15 @@ const Toggle = () => {
 		<div className="p-2 transition duration-500 ease-in-out rounded-full">
 			{theme === "dark" ? (
 				<IoSunny
-					onClick={switchTheme}
+					onClick={ switchTheme }
 					className="text-2xl cursor-pointer"
 				/>
 			) : (
 				<IoMoon
-					onClick={switchTheme}
+					onClick={ switchTheme }
 					className="text-2xl cursor-pointer"
 				/>
-			)}
+			) }
 		</div>
 	);
 };
