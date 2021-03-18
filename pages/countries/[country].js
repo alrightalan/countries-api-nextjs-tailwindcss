@@ -1,9 +1,10 @@
 import useSWR from "swr";
 import axios from "axios";
 import Link from "next/link";
+
 import Loading from "../../components/Loading";
-import { GoArrowLeft } from "react-icons/go";
 import Navbar from "../../components/Navbar";
+import { GoArrowLeft } from "react-icons/go";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 const getURL = (country) => `https://restcountries.eu/rest/v2/alpha/${country}`;
@@ -26,82 +27,81 @@ export default function DetailPage({ country }) {
 			</div>
 
 			<div className="max-w-screen-xl gap-24 pb-8 mx-8 xl:mt-24 md:pb-12 lg:pb-0 lg:items-center md:mx-24 xl:px-12 lg:mx-32 xl:flex xl:mx-auto">
-
 				<img
 					className="w-full h-auto rounded-md md:max-w-3xl xl:max-w-2xl"
-					src={ data.flag }
-					alt={ `The flag of ${data.name}` }
+					src={data.flag}
+					alt={`The flag of ${data.name}`}
 				/>
 
 				<div className="items-center justify-center pt-12 lg:pt-16 xl:p-0 md:flex-row">
-					<h1 className="mb-8 text-2xl font-bold">{ data.name }</h1>
+					<h1 className="mb-8 text-2xl font-bold">{data.name}</h1>
 					<div className="gap-12 md:flex">
 						<ul className="leading-relaxed">
 							<li>
 								<span className="font-semibold">
-									Native Name:{ " " }
+									Native Name:{" "}
 								</span>
-								{ data.nativeName }
+								{data.nativeName}
 							</li>
 							<li>
 								<span className="font-semibold">
-									Population:{ " " }
+									Population:{" "}
 								</span>
-								{ data.population.toLocaleString() }
+								{data.population.toLocaleString()}
 							</li>
 							<li>
 								<span className="font-semibold">Region: </span>
-								{ data.region }
+								{data.region}
 							</li>
 							<li>
 								<span className="font-semibold">
-									Sub Region:{ " " }
+									Sub Region:{" "}
 								</span>
-								{ data.subregion }
+								{data.subregion}
 							</li>
 							<li>
 								<span className="font-semibold">Capital: </span>
-								{ data.capital }
+								{data.capital}
 							</li>
 						</ul>
 						<ul className="mt-4 leading-relaxed md:mt-0">
 							<li>
 								<span className="font-semibold">
-									Top level Domain:{ " " }
+									Top level Domain:{" "}
 								</span>
-								{ data.topLevelDomain }
+								{data.topLevelDomain}
 							</li>
 							<li>
 								<span className="font-semibold">
-									Currencies:{ " " }
+									Currencies:{" "}
 								</span>
-								{ data.currencies[0].name }
+								{data.currencies[0].name}
 							</li>
 							<li>
 								<span className="font-semibold">
-									Languages:{ " " }
+									Languages:{" "}
 								</span>
-								{ data.languages
+								{data.languages
 									.map((language) => {
 										return language.name;
 									})
-									.join(",  ") }
+									.join(",  ")}
 							</li>
 						</ul>
 					</div>
 					<div className="mt-8 xl:max-w-lg">
 						<span className="font-semibold">Borders: </span>
 						<br />
-						{ data.borders.map((border, i) => (
-							<Link href={ "/countries/" + border } key={ i }>
+						{data.borders.map((border, i) => (
+							<Link href={"/countries/" + border} key={i}>
 								<button
 									className="px-4 py-2 mt-2 mr-2 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5 dark:hover:bg-opacity-75"
-									key={ data.alpha3Code }
+									key={data.alpha3Code}
 								>
-									{ border }
+									{border}
 								</button>
 							</Link>
-						)) }
+						))}
 					</div>
 				</div>
 			</div>

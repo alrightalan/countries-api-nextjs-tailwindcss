@@ -16,8 +16,6 @@ const Toggle = () => {
 		}
 	};
 
-	console.log(isMounted);
-
 	return (
 		<div className="p-2 transition duration-500 ease-in-out rounded-full">
 			{theme === "dark" ? (
