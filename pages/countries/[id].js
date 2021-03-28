@@ -19,79 +19,88 @@ export default function DetailPage({ country }) {
 			<div className="max-w-screen-xl gap-24 pb-8 mx-8 xl:mt-24 md:pb-12 lg:pb-0 lg:items-center md:mx-24 xl:px-12 lg:mx-32 xl:flex xl:mx-auto">
 				<img
 					className="w-full h-auto rounded-md md:max-w-3xl xl:max-w-2xl"
-					src={country.flag}
-					alt={`The flag of ${country.name}`}
+					src={ country.flag }
+					alt={ `The flag of ${country.name}` }
 				/>
 
 				<div className="items-center justify-center pt-12 lg:pt-16 xl:p-0 md:flex-row">
-					<h1 className="mb-8 text-2xl font-bold">{country.name}</h1>
+					<h1 className="mb-8 text-2xl font-bold">{ country.name }</h1>
 					<div className="gap-12 md:flex">
 						<ul className="leading-relaxed">
 							<li>
 								<span className="font-semibold">
-									Native Name:{" "}
+									Native Name:{ " " }
 								</span>
-								{country.nativeName}
+								{ country.nativeName }
 							</li>
 							<li>
 								<span className="font-semibold">
-									Population:{" "}
+									Population:{ " " }
 								</span>
-								{country.population.toLocaleString()}
+								{ country.population.toLocaleString() }
 							</li>
 							<li>
 								<span className="font-semibold">Region: </span>
-								{country.region}
+								{ country.region }
 							</li>
 							<li>
 								<span className="font-semibold">
-									Sub Region:{" "}
+									Sub Region:{ " " }
 								</span>
-								{country.subregion}
+								{ country.subregion }
 							</li>
 							<li>
 								<span className="font-semibold">Capital: </span>
-								{country.capital}
+								{ country.capital }
 							</li>
 						</ul>
 						<ul className="mt-4 leading-relaxed md:mt-0">
 							<li>
 								<span className="font-semibold">
-									Top level Domain:{" "}
+									Top level Domain:{ " " }
 								</span>
-								{country.topLevelDomain}
+								{ country.topLevelDomain }
 							</li>
 							<li>
 								<span className="font-semibold">
-									Currencies:{" "}
+									Currencies:{ " " }
 								</span>
-								{country.currencies[0].name}
+								{ country.currencies[0].name }
 							</li>
 							<li>
 								<span className="font-semibold">
-									Languages:{" "}
+									Languages:{ " " }
 								</span>
-								{country.languages
+								{ country.languages
 									.map((language) => {
 										return language.name;
 									})
-									.join(",  ")}
+									.join(",  ") }
 							</li>
 						</ul>
 					</div>
 					<div className="mt-8 xl:max-w-lg">
 						<span className="font-semibold">Borders: </span>
 						<br />
-						{country.borders.map((border, i) => (
-							<Link href={"/countries/" + border} key={i}>
-								<button
-									className="px-4 py-2 mt-2 mr-2 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5 dark:hover:bg-opacity-75"
-									key={country.alpha3Code}
-								>
-									{border}
-								</button>
-							</Link>
-						))}
+
+						{ country.borders.length > 0 ? (
+							country.borders.map((border, i) => (
+								<Link href={ "/countries/" + border } key={ i }>
+									<button
+										className="px-4 py-2 mt-2 mr-2 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5 dark:hover:bg-opacity-75"
+										key={ country.alpha3Code }
+									>
+										{ border }
+									</button>
+								</Link>
+							))
+						) : (
+							<p>None</p>
+						) }
+
+
+
+
 					</div>
 				</div>
 			</div>
