@@ -9,7 +9,7 @@ export default function DetailPage({ country }) {
 		<div className="min-h-screen text-dark-elements bg-light-bg dark:bg-dark-bg dark:text-light-elements">
 			<Navbar />
 			<div className="flex py-8 mx-8 mb-4 md:mx-16 lg:mb-8 xl:max-w-screen-xl xl:mx-auto">
-				<Link href="/">
+				<Link href="/countries/">
 					<button className="flex items-center px-8 py-4 rounded shadow focus-within:ring bg-light-elements dark:bg-dark-elements focus:outline-none hover:bg-opacity-5">
 						<GoArrowLeft className="mr-4" /> Back
 					</button>

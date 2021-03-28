@@ -10,8 +10,6 @@ export default function Main({ countries }) {
 	const [search, setSearch] = useState("");
 	const [filter, setFilter] = useState("");
 
-	console.log(countries);
-
 	return (
 		<>
 			<Navbar />
