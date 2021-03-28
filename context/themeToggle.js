@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useTheme } from "next-themes";
 import { IoSunny, IoMoon } from "react-icons/io5";
 
 const Toggle = () => {
 	const { theme, setTheme } = useTheme();
-	const [isMounted, setIsMounted] = useState(false);
-
-	useEffect(() => {
-		setIsMounted(true);
-	}, []);
 
 	const switchTheme = () => {
-		if (isMounted) {
-			setTheme(theme === "light" ? "dark" : "light");
-		}
+		setTheme(theme === "light" ? "dark" : "light");
 	};
 
 	return (

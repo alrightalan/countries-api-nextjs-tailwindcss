@@ -10,8 +10,6 @@ function MyApp({ Component, pageProps }) {
 		setIsMounted(true);
 	}, []);
 
-	console.log(isMounted);
-
 	return (
 		isMounted && (
 			<ThemeProvider attribute="class">
