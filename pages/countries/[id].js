@@ -18,7 +18,7 @@ export default function DetailPage({ country }) {
 
 			<div className="max-w-screen-xl gap-24 pb-8 mx-8 xl:mt-24 md:pb-12 lg:pb-0 lg:items-center md:mx-24 xl:px-12 lg:mx-32 xl:flex xl:mx-auto">
 				<img
-					className="w-full h-auto rounded-md md:max-w-3xl xl:max-w-2xl"
+					className="w-full h-auto rounded-md md:max-w-2xl xl:max-w-xl"
 					src={ country.flag }
 					alt={ `The flag of ${country.name}` }
 				/>

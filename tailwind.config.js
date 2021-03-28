@@ -1,4 +1,8 @@
 module.exports = {
+	future: {
+		removeDeprecatedGapUtilities: true,
+		purgeLayersByDefault: true,
+	},
 	purge: [
 		"./pages/**/*.{js,ts,jsx,tsx}",
 		"./components/**/*.{js,ts,jsx,tsx}",
@@ -18,7 +22,10 @@ module.exports = {
 		},
 	},
 	variants: {
-		extend: {},
+		extend: {
+			backgroundColor: ["dark"],
+			textColor: ["dark"],
+		},
 	},
 	plugins: [],
 };
